@@ -1,0 +1,159 @@
+/*Branching Statements:- Branching is deciding what actions to take.
+Branching is so called because the program chooses to follow one branch or another.
+1] If Statement:-
+  1] All types of values allowed.[char,int,float,double]
+  2] All types of Operators are allowed to check the conditions.
+  3] ASCII Values are allowed.
+  
+2] If Else Statement:- Same as IF Statement. but Else part is optional.
+
+3] If Else Ladder Statement:-
+   The if-else ladder is of type strict condition check, 
+   while switch is of type jump value catching. 
+4] Switch Case:
+   A switch statement is a type of selection control mechanism used to 
+   allow the value of a variable or expression to 
+   change the control flow of program execution via a multiway branch.
+Advantages of switch over if-else ladder:
+ A switch statement works much faster than equivalent if-else ladder. 
+ It is because compiler generates a jump table for a switch during compilation.
+*/
+#include <stdio.h>
+#include <stdlib.h>
+int main() {
+
+	//if(1)
+//	{
+	//	printf("Hi\n");
+	//}
+	  // compiler loking for Else(optional)--OK.
+//	printf("Hello\n"); // Outer Statement--OK.
+	//else // Else Blck without If.
+//	printf("Bye!\n");
+	int number;
+	printf("Enter any Number:");
+	scanf("%d",&number);
+	
+    if (number % 2 == 0 && number % 4 == 0)
+    {
+      printf("It's divisible by two and four!");
+    }
+   else
+   {
+     printf("It's not divisible by two and four!");
+   }
+   // Nested If Else Statement: Income tax example.
+   
+    int age,income;
+    float tax,tax_percent;
+    printf("Enter age to check the Income tax");
+    scanf("%d",&age);
+    printf("Please enter the income");
+    scanf("%d",&income);
+
+   if (age < 60){
+      if (income <= 250000){
+        tax_percent = 0;
+      }else if (income >= 250001 && income <= 500000){
+        tax_percent = 0.1;
+      }else if (income >= 500001 && income <= 1000000){
+        tax_percent = 0.2;
+      }else{
+        tax_percent = 0.3;
+      } 
+    }else if (age >= 60 && age < 80){
+      if (income <= 300000){
+        tax_percent = 0;
+      }else if (income >= 300001 && income <= 500000){
+        tax_percent = 0.1;
+      }else if (income >= 500001 && income <= 1000000){
+        tax_percent = 0.2;
+      }else{
+        tax_percent = 0.3;
+      } 
+    }else{
+       if(income <= 500000){
+        tax_percent = 0;
+       }else if (income >= 500001 && income <= 1000000){
+        tax_percent = 0.2;
+       }else{
+        tax_percent = 0.3;
+       } 
+    }
+    
+    tax = tax_percent * income;
+    printf("The Tax is:%d",tax);
+
+
+#include <stdio.h>
+#include <stdlib.h>
+unsigned long amount=5000, deposit, withdraw;
+int choice, pin, k;
+char transaction ='y';
+void main()
+{
+while (pin != 1520)
+{
+printf("ENTER YOUR SECRET PIN NUMBER:");
+scanf("%d", &pin);  
+if (pin != 1520)
+
+printf("PLEASE ENTER VALID PASSWORD\n");
+}
+do
+{
+printf("********Welcome to ATM Service**************\n");
+printf("1. Check Balance\n");
+printf("2. Withdraw Cash\n");
+printf("3. Deposit Cash\n");
+printf("4. Quit\n");
+printf("******************?**************************?*\n\n");
+printf("Enter your choice: ");
+scanf("%d", &choice);
+switch (choice)
+{
+case 1:
+printf("\n YOUR BALANCE IN Rs : %lu ", amount);
+break;
+case 2:
+printf("\n ENTER THE AMOUNT TO WITHDRAW: ");
+scanf("%lu", &withdraw);
+if (withdraw % 100 != 0)
+{
+printf("\n PLEASE ENTER THE AMOUNT IN MULTIPLES OF 100");
+}
+else if (withdraw >(amount - 500))
+{
+printf("\n INSUFFICENT BALANCE");
+}
+else
+{
+amount = amount - withdraw;
+printf("\n\n PLEASE COLLECT CASH");
+printf("\n YOUR CURRENT BALANCE IS%lu", amount);
+}
+break;
+case 3:
+printf("\n ENTER THE AMOUNT TO DEPOSIT");
+scanf("%lu", &deposit);
+amount = amount + deposit;
+printf("YOUR BALANCE IS %lu", amount);
+break;
+case 4:
+printf("\n THANK U USING ATM");
+break;
+default:
+printf("\n INVALID CHOICE");
+}
+printf("\n\n\n DO U WISH TO HAVE ANOTHER TRANSCATION?(y/n): \n");
+fflush(stdin);
+scanf("%c", &transaction);
+if (transaction == 'n'|| transaction == 'N')
+k = 1;
+} while (!k);
+printf("\n\n THANKS FOR USING OUT ATM SERVICE");
+}
+    return 0;
+}
+
+
